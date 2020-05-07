@@ -1,3 +1,3 @@
-module github.com/lin-sam/goutil
+module github.com/extendpackage/goutil
 
 go 1.14
