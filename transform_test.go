@@ -21,7 +21,7 @@ func Test_TransfromObject(t *testing.T) {
 		from entryType
 		to   entryType
 	}
-	tests := []struct {
+	cases := []struct {
 		name    string
 		args    args
 		want    entryType
@@ -38,13 +38,13 @@ func Test_TransfromObject(t *testing.T) {
 		},
 	}
 
-	for _, tt := range tests {
-		err := TransfromObject(tt.args.from, &tt.args.to)
-		if (err != nil) != tt.wantErr {
-			t.Errorf("[%s] TransfromObject err:%v", tt.name, err)
+	for _, oneCase := range cases {
+		err := TransfromObject(oneCase.args.from, &oneCase.args.to)
+		if (err != nil) != oneCase.wantErr {
+			t.Errorf("[%s] TransfromObject err:%v", oneCase.name, err)
 		}
-		if !reflect.DeepEqual(tt.want, tt.args.to) {
-			t.Errorf("[%s] TransfromObject(%+v,%+v),result want:%+v,to:%+v", tt.name, tt.args.from, &tt.args.to, tt.want, tt.args.to)
+		if !reflect.DeepEqual(oneCase.want, oneCase.args.to) {
+			t.Errorf("[%s] TransfromObject(%+v,%+v),result want:%+v,to:%+v", oneCase.name, oneCase.args.from, &oneCase.args.to, oneCase.want, oneCase.args.to)
 		}
 	}
 
