@@ -6,7 +6,7 @@ import (
 )
 
 // MemSet set `value` to `arr`(slice) with the number of `number`
-func MemSet(arr interface{}, value interface{}, number int) (newArr interface{}) {
+func AppendServeral(arr interface{}, value interface{}, number int) (newArr interface{}) {
 	defer func() {
 		if recover() != nil {
 			newArr = nil

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_MemSet(t *testing.T) {
+func Test_AppendServeral(t *testing.T) {
 	type args struct {
 		arr    interface{}
 		value  interface{}
@@ -33,11 +33,11 @@ func Test_MemSet(t *testing.T) {
 		},
 	}
 	for _, oneCase := range cases {
-		res := MemSet(oneCase.args.arr, oneCase.args.value, oneCase.args.number)
+		res := AppendServeral(oneCase.args.arr, oneCase.args.value, oneCase.args.number)
 		arrValue := reflect.ValueOf(res)
 		for i := int(0); i < oneCase.args.number; i++ {
 			if arrValue.Index(i).Interface() != oneCase.args.value {
-				t.Errorf("[%s] MemSet(%+v,%+v,%+v), index i:%+v,current value:%+v,want value:%+v", oneCase.name, oneCase.args.arr, oneCase.args.value, oneCase.args.number, i, res, oneCase.args.value)
+				t.Errorf("[%s] AppendServeral(%+v,%+v,%+v), index i:%+v,current value:%+v,want value:%+v", oneCase.name, oneCase.args.arr, oneCase.args.value, oneCase.args.number, i, res, oneCase.args.value)
 			}
 		}
 
