@@ -1,11 +1,11 @@
-package goutil
+package transform
 
 import (
 	"reflect"
 	"testing"
 )
 
-func Test_TransfromObject(t *testing.T) {
+func TestTransfromObject(t *testing.T) {
 	type entryType struct {
 		Int     int     `json:"i"`
 		Str     string  `json:"str"`
@@ -17,19 +17,19 @@ func Test_TransfromObject(t *testing.T) {
 		Falot64: 1.1,
 	}
 
-	type args struct {
+	type Args struct {
 		from entryType
 		to   entryType
 	}
 	cases := []struct {
 		name    string
-		args    args
+		args    Args
 		want    entryType
 		wantErr bool
 	}{
 		{
 			name: "ok",
-			args: args{
+			args: Args{
 				entry,
 				entryType{},
 			},

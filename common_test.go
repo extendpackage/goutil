@@ -4,19 +4,19 @@ import (
 	"testing"
 )
 
-func Test_FloatRound(t *testing.T) {
-	type args struct {
+func TestFloatRound(t *testing.T) {
+	type Args struct {
 		f float64
 		n int
 	}
 	cases := []struct {
 		name string
-		args args
+		args Args
 		want float64
 	}{
 		{
 			name: "ok",
-			args: args{
+			args: Args{
 				1.2345,
 				2,
 			},

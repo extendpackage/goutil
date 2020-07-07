@@ -1,23 +1,23 @@
-package goutil
+package array
 
 import (
 	"reflect"
 	"testing"
 )
 
-func Test_AppendServeral(t *testing.T) {
-	type args struct {
+func TestAppendServeral(t *testing.T) {
+	type Args struct {
 		arr    interface{}
 		value  interface{}
 		number int
 	}
 	cases := []struct {
 		name string
-		args args
+		args Args
 	}{
 		{
 			name: "int",
-			args: args{
+			args: Args{
 				[]int{},
 				2,
 				10,
@@ -25,7 +25,7 @@ func Test_AppendServeral(t *testing.T) {
 		},
 		{
 			name: "string",
-			args: args{
+			args: Args{
 				[]string{},
 				"test",
 				10,
@@ -44,19 +44,19 @@ func Test_AppendServeral(t *testing.T) {
 	}
 }
 
-func Test_IsInArray(t *testing.T) {
-	type args struct {
+func TestIsInArray(t *testing.T) {
+	type Args struct {
 		element interface{}
 		arr     interface{}
 	}
 	cases := []struct {
 		name string
-		args args
+		args Args
 		want bool
 	}{
 		{
 			name: "ok_true",
-			args: args{
+			args: Args{
 				1,
 				[]int{1, 2, 3},
 			},
@@ -64,7 +64,7 @@ func Test_IsInArray(t *testing.T) {
 		},
 		{
 			name: "ok_false",
-			args: args{
+			args: Args{
 				100,
 				[]int{1, 2, 3},
 			},
@@ -72,7 +72,7 @@ func Test_IsInArray(t *testing.T) {
 		},
 		{
 			name: "ok_string",
-			args: args{
+			args: Args{
 				"test1",
 				[]string{"test1", "test2", "test3"},
 			},
@@ -87,25 +87,25 @@ func Test_IsInArray(t *testing.T) {
 	}
 }
 
-func Test_ArrayRemoveRepeat(t *testing.T) {
-	type args struct {
+func TestArrayRemoveRepeat(t *testing.T) {
+	type Args struct {
 		arr interface{}
 	}
 	cases := []struct {
 		name string
-		args args
+		args Args
 		want interface{}
 	}{
 		{
 			name: "ok_int",
-			args: args{
+			args: Args{
 				[]int{1, 1, 2, 3},
 			},
 			want: []int{1, 2, 3},
 		},
 		{
 			name: "ok_string",
-			args: args{
+			args: Args{
 				[]string{"test1", "test1", "test2", "test3"},
 			},
 			want: []string{"test1", "test2", "test3"},
@@ -119,18 +119,18 @@ func Test_ArrayRemoveRepeat(t *testing.T) {
 	}
 }
 
-func Test_IntArrayToStringArray(t *testing.T) {
-	type args struct {
+func TestIntArrayToStringArray(t *testing.T) {
+	type Args struct {
 		arr []int
 	}
 	cases := []struct {
 		name string
-		args args
+		args Args
 		want []string
 	}{
 		{
 			name: "ok",
-			args: args{
+			args: Args{
 				[]int{1, 2, 3},
 			},
 			want: []string{"1", "2", "3"},
@@ -144,19 +144,19 @@ func Test_IntArrayToStringArray(t *testing.T) {
 	}
 }
 
-func Test_StringArrayToIntArray(t *testing.T) {
-	type args struct {
+func TestStringArrayToIntArray(t *testing.T) {
+	type Args struct {
 		arr []string
 	}
 	cases := []struct {
 		name    string
-		args    args
+		args    Args
 		want    []int
 		wantErr bool
 	}{
 		{
 			name: "ok",
-			args: args{
+			args: Args{
 				[]string{"1", "2", "3"},
 			},
 			want:    []int{1, 2, 3},
@@ -164,7 +164,7 @@ func Test_StringArrayToIntArray(t *testing.T) {
 		},
 		{
 			name: "ok_error",
-			args: args{
+			args: Args{
 				[]string{"1", "2", "3", "3t"},
 			},
 			want:    nil,
